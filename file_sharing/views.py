@@ -12,7 +12,13 @@ from .serializers import (GroupSerializer, MediaSerializer, UserRegisterSerializ
                           UserSerializer, MediaReadSerializer, GroupReadSerializer)
 
 
-class UserSignUpView(generics.CreateAPIView, generics.ListAPIView):
+class UsersListView(generics.ListAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserRegisterSerializer
+    permission_classes = [IsAuthenticated]
+
+
+class UserSignUpView(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserRegisterSerializer
     permission_classes = [AllowAny]

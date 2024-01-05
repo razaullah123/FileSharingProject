@@ -56,16 +56,6 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "FileSharingProject.urls"
 
-# Djoser settings
-DJOSER = {
-    'SERIALIZERS': {
-        'user_create': 'yourapp.serializers.UserCreateSerializer',
-        'user': 'yourapp.serializers.UserSerializer',
-        'current_user': 'djoser.serializers.UserSerializer',
-    },
-    'LOGIN_FIELD': 'email',  # assuming email is the login field
-    'HIDE_USERS': False,
-}
 
 # REST Framework settings
 REST_FRAMEWORK = {
@@ -190,7 +180,7 @@ SIMPLE_JWT = {
     "SLIDING_TOKEN_LIFETIME": timedelta(minutes=5),
     "SLIDING_TOKEN_REFRESH_LIFETIME": timedelta(days=1),
 
-    
+
 }
 
 AUTH_USER_MODEL = 'file_sharing.User'
